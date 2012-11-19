@@ -44,8 +44,9 @@ The MediaWiki credentials are:
 * Username: admin
 * Password: vagrant
 
-Known issues:
+## Known issues ##
 * Sometimes, the database creation via the MediaWiki install script fails. Try it again.
+* Sometimes, the VM is not ready when the change propagation script is already running (via www-data's crontab). Kill the processes (called pollForChanges.php) and start them manually.
 
   [0]: http://vagrantup.com/v1/docs/getting-started/index.html
   [1]: https://www.virtualbox.org/wiki/Downloads
