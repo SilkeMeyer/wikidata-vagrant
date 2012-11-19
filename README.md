@@ -18,11 +18,19 @@ vagrant up
 vagrant reload
 ```
 
-It'll take some time, because it'll need to fetch the base precise32 box and MediaWiki core (twice) plus the extensions. Once it's done, browse to http://127.0.0.1:8080. You find a Wikidata repo and client preinstalled, served by the guest VM, which is running Ubuntu Precise 32-bit. (If you get puppet error messages during the first `vagrant up` command, run `vagrant reload`.)
+When you do this for the first time, it will take at least half an hour, because it'll need to fetch the base precise32 (Ubuntu) box and MediaWiki core (twice) plus the extensions and then it will import test data. Once it's done, browse to http://127.0.0.1:8080. You find a Wikidata repo and client preinstalled, served by the guest VM, which is running Ubuntu Precise 32-bit. If you get puppet error messages during the first `vagrant up` command, run `vagrant reload` which also forces puppet to run again. Currently, the pre-installed extensions are Diff, DataValues, UniversalLanguageSelector, Wikibase, DismissableSiteNotice and ParserFunctions.
 
-To update to the most recent code from gerrit, run `git pull` outside the VM, in the folders wikidata-vagrant/repo, wikidata-vagrant/client and in all folders in wikidata-vagrant/extensions. To update the extensions Wikibase, Diff und DataValues to the state of our demo system (http://wikidata-test-repo.wikimedia.de and http://wikidata-test-client.wikimedia.de), look at our tags (https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/Wikibase.git;a=tags) and run `git checkout <tag>`.
+To update to the most recent code from gerrit, run `git pull` outside the VM, in the folders wikidata-vagrant/repo, wikidata-vagrant/client and in all folders in wikidata-vagrant/extensions. To update the extensions Wikibase, Diff and DataValues to the state of our demo system (http://wikidata-test-repo.wikimedia.de and http://wikidata-test-client.wikimedia.de), look at our tags (https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/Wikibase.git;a=tags) and run `git checkout <tag>`.
 
-The repo test instance contains the chemical elements as test data, the client instance does not contain any data. You can play with the repo client replication by just adding pages for the same chemical elements to the client - you will see the language links appear in the client.
+To set up a fresh Vagrant machine in the same directory as before, delete the following four files manually and run `vagrant destroy`:
+```
+rm orig-repo/LocalSettings.php
+rm orig-client/LocalSettings.php
+rm repo/LocalSettings.php
+rm client/LocalSettings.php
+```
+
+Both repo and client contain the chemical elements as test data. As an example, look at http://localhost:8080/client/wiki/Helium and http://localhost:8080/repo/wiki/Helium.
 
 The vagrant root folder is mounted `/srv`, and port 8080 on the host is forwarded to port 80 on the guest.
 
@@ -35,6 +43,9 @@ The MediaWiki credentials are:
 
 * Username: admin
 * Password: vagrant
+
+Known issues:
+* Sometimes, the database creation via the MediaWiki install script fails. Try it again.
 
   [0]: http://vagrantup.com/v1/docs/getting-started/index.html
   [1]: https://www.virtualbox.org/wiki/Downloads

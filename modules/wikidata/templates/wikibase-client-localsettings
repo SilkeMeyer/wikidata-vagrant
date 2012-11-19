@@ -12,7 +12,8 @@ require_once( '/srv/orig-client/LocalSettings.php' );
 
 $wgArticlePath      = "/client/wiki/$1";
 $wgLogo             = "$wgStylePath/common/images/Wikidata-logo-democlient.png";
-
+# InstantCommons allows wiki to use images from http://commons.wikimedia.org
+$wgUseInstantCommons  = true;
 
 // Wikidata: Wikibase lib and client extensions
 // (dependencies: Diff, DataValues and ULS extensions)
@@ -22,6 +23,7 @@ require_once( "/srv/extensions/UniversalLanguageSelector/UniversalLanguageSelect
 require_once( "/srv/extensions/Wikibase/lib/WikibaseLib.php");
 require_once( "/srv/extensions/Wikibase/client/WikibaseClient.php");
 require_once( "/srv/extensions/DismissableSiteNotice/DismissableSiteNotice.php");
+require_once( "/srv/extensions/ParserFunctions/ParserFunctions.php" );
 
 
 // Configuration of Wikibase Client
