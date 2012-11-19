@@ -20,9 +20,9 @@ vagrant reload
 
 It'll take some time, because it'll need to fetch the base precise32 box and MediaWiki core (twice) plus the extensions. Once it's done, browse to http://127.0.0.1:8080. You find a Wikidata repo and client preinstalled, served by the guest VM, which is running Ubuntu Precise 32-bit. (If you get puppet error messages during the first `vagrant up` command, run `vagrant reload`.)
 
-To update to the most recent code from gerrit, run `git pull` outside the VM, in the folders wikidata-vagrant/repo, wikidata-vagrant/client and in all folder in wikidata-vagrant/extensions. To update the extensions Wikibase, Diff und DataValues to the state of our demo system (http://wikidata-test-repo.wikimedia.de and http://wikidata-test-client.wikimedia.de), look at our tags (https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/Wikibase.git;a=tags) and run `git checkout <tag>`.
+To update to the most recent code from gerrit, run `git pull` outside the VM, in the folders wikidata-vagrant/repo, wikidata-vagrant/client and in all folders in wikidata-vagrant/extensions. To update the extensions Wikibase, Diff und DataValues to the state of our demo system (http://wikidata-test-repo.wikimedia.de and http://wikidata-test-client.wikimedia.de), look at our tags (https://gerrit.wikimedia.org/r/gitweb?p=mediawiki/extensions/Wikibase.git;a=tags) and run `git checkout <tag>`.
 
-The repo test instance contains the chemical elements as test data, the client instance does not contain any data. You can play with the repo client replication by just adding pages for the same chemical elements to the client - you will see the language links appear.
+The repo test instance contains the chemical elements as test data, the client instance does not contain any data. You can play with the repo client replication by just adding pages for the same chemical elements to the client - you will see the language links appear in the client.
 
 The vagrant root folder is mounted `/srv`, and port 8080 on the host is forwarded to port 80 on the guest.
 
