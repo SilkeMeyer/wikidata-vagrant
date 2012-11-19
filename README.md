@@ -30,7 +30,7 @@ rm repo/LocalSettings.php
 rm client/LocalSettings.php
 ```
 
-Both repo and client contain the chemical elements as test data. As an example, look at http://localhost:8080/client/wiki/Helium and http://localhost:8080/repo/wiki/Helium.
+Both repo and client contain the chemical elements as test data. As an example, look at http://127.0.0.1:8080/client/wiki/Helium and http://127.0.0.1:8080/repo/wiki/Helium.
 
 The vagrant root folder is mounted `/srv`, and port 8080 on the host is forwarded to port 80 on the guest.
 
