@@ -152,13 +152,6 @@ class wikidata::client {
 		logoutput => "on_failure";
 	}
 
-	exec { "importDump":
-		require => Exec["client_update2"],
-		cwd => "/srv/client",
-		command => "/usr/bin/php maintenance/importDump.php /srv/simple-elements.xml",
-		logoutput => "on_failure";
-	}
-
 # for client repo replication
 	user { "www-data":
 		ensure => present
