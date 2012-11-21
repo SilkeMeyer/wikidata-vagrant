@@ -30,7 +30,7 @@ rm repo/LocalSettings.php
 rm client/LocalSettings.php
 ```
 
-Both repo and client contain the chemical elements as test data. As an example, look at http://127.0.0.1:8080/client/wiki/Helium and http://127.0.0.1:8080/repo/wiki/Helium.
+The repo contains the chemical elements as test data. As an example, look at http://127.0.0.1:8080/client/wiki/Helium. Importing sample pages from WP into the client does not work correctly for the moment because a file permissions issue on a vboxfs file system. Please create pages in the client yourselves - the page names should be the same as in the repo (e.g. "Helium") so that repo and client can communicate.
 
 The vagrant root folder is mounted `/srv`, and port 8080 on the host is forwarded to port 80 on the guest.
 
