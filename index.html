@@ -8,17 +8,34 @@
 </head>
 <body style="padding: 80px">
 	<img src="Wikidata-logo-demo.png" width="240" alt = Wikidata Demo Logo>
-<h1>Welcome to the Wikidata demo system!</h1>
+<h1>Welcome to the Wikidata demo and dev system!</h1>
 
 <p>Wikidata aims to create a free knowledge base about the world that can be read and edited by humans and machines alike. It will provide data in all the languages of the Wikimedia projects, and allow for the central access to data in a similar vein as Wikimedia Commons does for multimedia files. Wikidata is currently in development. You can see a demo of what we have been working on so far here.</p>
 
+<h2>What can I do here?</h2>
+
+This is the demo of the current state of Wikidata development.
 <p>There are two parts of the demo:
 <ul>
 <li><a href="/repo">a repository</a> - this is what holds the data</li>
 <li><a href="/client">a client</a> - this is what consumes the data (Wikipedia for example in the future)</li>
 </ul>
-<p>
-</p>
+
+
+The repo contains the chemical elements as test items. <a href="http://localhost:8080/repo/wiki/Item:Q3">Here is an example.</a>
+One simple workflow you can try out is to create a new entry in the repo-wiki and the create a matching article in the client-wiki. The client-wiki page will have all the language links on the left side you added on the repo-wiki.
+
+Create a new entry <a href="/repo/wiki/Special:CreateItem">here</a>. The label you choose must be equal to the title of the page you will create in the client-wiki.
+Add some language links in the repo-wiki to existing Wikipedias. <strong>Be sure to add language links to English (en) or the client-wiki won't try to find the interwiki links.</strong>
+Create a new article with the label you used in the client-wiki.
+Once you save the page you should see the language links you added to the repo-wiki on the left side.
+<br>
+<br>
+There is more information and documentation coming up soon!
+
+Where can I learn more about the project?<br>
+The project is open and you can find out more about the development on the <a href="http://meta.wikimedia.org/wiki/Wikidata">Meta-Wiki</a>.
+
 <br>
 Regards<br>
 <a href="http://blog.wikimedia.de/2012/04/04/meet-the-wikidata-team/">the Wikidata team</a>
