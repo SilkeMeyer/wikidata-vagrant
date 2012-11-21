@@ -153,14 +153,14 @@ class wikidata::client {
 	}
 
 # for client repo replication
-	user { "www-data":
+	user { "vagrant":
 		ensure => present
 	}
 # replication log file
 	file { "/var/log/wikidata-replication.log":
 		ensure => present,
-		owner => "www-data",
-		group => "www-data",
+		owner => "vagrant",
+		group => "vagrant",
 		mode => "0664";
 	}
 # poll for changes
@@ -168,8 +168,7 @@ class wikidata::client {
 		ensure => present,
 		require => Exec["client_update2"],
 		command => "/bin/sleep 300 ; MW_INSTALL_PATH=/srv/client /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/pollForChanges.php --since \"yesterday\" >> /var/log/wikidata-replication.log",
-		user => "www-data",
+		user => "vagrant",
 		minute => "*/5";
 	}
-
 }
