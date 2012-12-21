@@ -25,6 +25,8 @@ require_once( "/srv/extensions/Wikibase/client/WikibaseClient.php");
 require_once( "/srv/extensions/DismissableSiteNotice/DismissableSiteNotice.php");
 require_once( "/srv/extensions/ParserFunctions/ParserFunctions.php" );
 
+// experimental features
+define( 'WB_EXPERIMENTAL_FEATURES', true );
 
 // Configuration of Wikibase Client
 //$wgWBSettings['namespaces'] = array( NS_MAIN, NS_CATEGORY );

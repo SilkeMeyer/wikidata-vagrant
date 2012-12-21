@@ -22,6 +22,9 @@ require_once( "/srv/extensions/Wikibase/lib/WikibaseLib.php");
 require_once( "/srv/extensions/Wikibase/repo/Wikibase.php");
 require_once( "/srv/extensions/DismissableSiteNotice/DismissableSiteNotice.php");
 
+// experimental features
+define( 'WB_EXPERIMENTAL_FEATURES', true );
+
 // Debug settings
 $wgDebugToolbar = true;
 $wgShowExceptionDetails = true;
