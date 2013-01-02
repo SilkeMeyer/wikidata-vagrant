@@ -44,6 +44,8 @@ The MediaWiki credentials are:
 * Username: admin
 * Password: vagrant
 
+Profiling information can be found on http://localhost:8080/repo/profileinfo.php, resp. http://localhost:8080/client/profileinfo.php.
+
 ## Known issues ##
 * Sometimes, the database creation via the MediaWiki install script fails. Try it again.
 * Sometimes, the VM is not ready when the change propagation script is already running (via www-data's crontab). Kill the processes (called pollForChanges.php) and start them manually.
