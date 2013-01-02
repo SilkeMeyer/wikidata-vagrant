@@ -13,6 +13,10 @@ require_once( '/srv/orig-repo/LocalSettings.php' );
 $wgArticlePath      = "/repo/wiki/$1";
 $wgLogo             = "$wgStylePath/common/images/Wikidata-logo-demorepo.png";
 
+
+// experimental features
+define( 'WB_EXPERIMENTAL_FEATURES', true );
+
 // Wikidata: Wikibase lib and repo extensions
 // (dependencies: Diff, DataValues and ULS extensions)
 require_once( "/srv/extensions/Diff/Diff.php");
@@ -22,8 +26,24 @@ require_once( "/srv/extensions/Wikibase/lib/WikibaseLib.php");
 require_once( "/srv/extensions/Wikibase/repo/Wikibase.php");
 require_once( "/srv/extensions/DismissableSiteNotice/DismissableSiteNotice.php");
 
-// experimental features
-define( 'WB_EXPERIMENTAL_FEATURES', true );
+$wgContentHandlerUseDB = true;
+
+// Profiling
+// (Defaults from Wikibase/lib/ProfilingSettings.php)
+// Only record profiling info for pages that took longer than this
+$wgProfileLimit = 0.1;
+// Log sums from profiling into "profiling" table in db
+$wgProfileToDatabase = true;
+// If true, print a raw call tree instead of per-function report
+$wgProfileCallTree = false;
+// Should application server host be put into profiling table
+$wgProfilePerHost = false;
+// Detects non-matching wfProfileIn/wfProfileOut calls
+$wgDebugProfiling = true;
+// Output debug message on every wfProfileIn/wfProfileOut
+$wgDebugFunctionEntry = 0;
+// Lots of debugging output from SquidUpdate.php
+$wgEnableProfileInfo = true;
 
 // Debug settings
 $wgDebugToolbar = true;

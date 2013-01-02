@@ -109,3 +109,20 @@ $wgLBFactoryConf = array(
 
 
 $wgSiteNotice = '<div style="font-size: 90%; background: #FFCC33; padding: 1ex; border: #940 dotted; margin-top: 1ex; margin-bottom: 1ex; "> This is a demo system showing the current state of Wikidata development. It is going to evolve over the next few weeks.<br> If you find bugs please report them in [https://bugzilla.wikimedia.org/enter_bug.cgi?product=MediaWiki%20extensions Bugzilla] for the Wikidata Client or Repo component. [https://meta.wikimedia.org/wiki/Wikidata/Development/Howto_Bugreport Here is how to submit a bug.] If you would like to discuss something or give input please use the [https://lists.wikimedia.org/mailman/listinfo/wikidata-l mailing list]. Thank you!  </div>';
+
+// Profiling
+// (Defaults from Wikibase/lib/ProfilingSettings.php)
+// Only record profiling info for pages that took longer than this
+$wgProfileLimit = 0.1;
+// Log sums from profiling into "profiling" table in db
+$wgProfileToDatabase = true;
+// If true, print a raw call tree instead of per-function report
+$wgProfileCallTree = false;
+// Should application server host be put into profiling table
+$wgProfilePerHost = false;
+// Detects non-matching wfProfileIn/wfProfileOut calls
+$wgDebugProfiling = true;
+// Output debug message on every wfProfileIn/wfProfileOut
+$wgDebugFunctionEntry = 0;
+// Lots of debugging output from SquidUpdate.php
+$wgEnableProfileInfo = true;

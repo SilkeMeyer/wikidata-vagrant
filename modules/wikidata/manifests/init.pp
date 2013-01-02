@@ -90,6 +90,12 @@ class wikidata::repo {
 		command => "MW_INSTALL_PATH=/srv/repo /usr/bin/php importProperties.php --verbose en en-elements-properties.csv",
 		logoutput => "on_failure";
 	}
+
+# turn on profiling
+	file { "/srv/repo/StartProfiler.php":
+		content => template('wikidata/StartProfiler.php'),
+		ensure => present;
+	}
 }
 
 # client
@@ -150,6 +156,12 @@ class wikidata::client {
 		provider => shell,
 		command => "MW_INSTALL_PATH=/srv/client /usr/bin/php populateInterwiki.php",
 		logoutput => "on_failure";
+	}
+
+# turn on profiling
+	file { "/srv/client/StartProfiler.php":
+		content => template('wikidata/StartProfiler.php'),
+		ensure => present;
 	}
 
 # for client repo replication
