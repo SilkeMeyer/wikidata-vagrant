@@ -25,6 +25,7 @@ require_once( "/srv/extensions/UniversalLanguageSelector/UniversalLanguageSelect
 require_once( "/srv/extensions/Wikibase/lib/WikibaseLib.php");
 require_once( "/srv/extensions/Wikibase/repo/Wikibase.php");
 require_once( "/srv/extensions/DismissableSiteNotice/DismissableSiteNotice.php");
+require_once( "/srv/extensions/ApiSandbox/ApiSandbox.php" );
 
 $wgContentHandlerUseDB = true;
 
