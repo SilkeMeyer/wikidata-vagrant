@@ -34,12 +34,11 @@ $wgWBSettings['repoNamespaces'] = array(
 		'wikibase-item' => 'Item',
 		'wikibase-property' => 'Property'
 	);
-$wgWBSettings['repoBase'] = "http://localhost:8080/repo/wiki/";
-$wgWBSettings['repoApi'] = "http://localhost/repo/api.php";
-$wgWBSettings['siteGlobalID'] = "enwiki";
-//$wgWBSettings['siteGroup'] = "wiki";
-//$wgWBSettings['sort'] = 'code';
-//$wgWBSettings['sortPrepend'] = array( 'en' );
+$wgWBSettings['repoUrl'] = '//localhost:8080';
+$wgWBSettings['repoScriptPath'] = '/repo';
+$wgWBSettings['repoArticlePath'] = '/repo/wiki/$1';
+$wgWBSettings['siteGlobalID'] = 'enwiki';
+$wgWBSettings['repoDatabase'] = 'repo';
 
 // Database name of the repository, for use by the pollForChanges script.
 // This requires the given database name to be known to LBFactory, see
