@@ -46,10 +46,13 @@ $wgWBSettings['repoDatabase'] = 'repo';
 $wgWBSettings['changesDatabase'] = "repo";
 
 // debug settings
-//$wgDebugToolbar = true;
-//$wgShowExceptionDetails = true;
+$wgDebugToolbar = true;
+$wgShowExceptionDetails = true;
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
+$wgDebugLogGroups['wikibase'] = "/tmp/client-wikibase.log";
+$wgDebugLogGroups['Wikibase\LangLinkHandler'] = "/tmp/client-LangLinkHandler.log";
 //$wgEnableJavaScriptTest = true;
-//ini_set("display_errors", 1);
 
 # Query string length limit for ResourceLoader. You should only set this if
 # your web server has a query string length limit (then set it to that limit),
