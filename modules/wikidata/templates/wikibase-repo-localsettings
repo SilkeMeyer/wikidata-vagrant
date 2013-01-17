@@ -29,6 +29,8 @@ require_once( "/srv/extensions/ApiSandbox/ApiSandbox.php" );
 
 $wgContentHandlerUseDB = true;
 
+$wgWBSettings['localClientDatabases'] = array( 'enwiki' => 'client' );
+
 // Profiling
 // (Defaults from Wikibase/lib/ProfilingSettings.php)
 // Only record profiling info for pages that took longer than this

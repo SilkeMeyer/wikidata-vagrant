@@ -176,11 +176,26 @@ class wikidata::client {
 		mode => "0664";
 	}
 # poll for changes
-	cron { "pollForChanges":
+# will soon be deprecated but still works
+#	cron { "pollForChanges":
+#		ensure => present,
+#		require => Exec["client_update2"],
+#		command => "/bin/sleep 300 ; MW_INSTALL_PATH=/srv/client /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/pollForChanges.php --since \"yesterday\" >> /var/log/wikidata-replication.log",
+#		user => "vagrant",
+#		minute => "*/5";
+#	}
+	cron { "dispatcher":
 		ensure => present,
 		require => Exec["client_update2"],
-		command => "/bin/sleep 300 ; MW_INSTALL_PATH=/srv/client /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/pollForChanges.php --since \"yesterday\" >> /var/log/wikidata-replication.log",
+		command => "/bin/sleep 300 ; MW_INSTALL_PATH=/srv/repo /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/dispatchChanges.php --passes 10 --verbose >> /tmp/dispatchChanges.log",
 		user => "vagrant",
-		minute => "*/5";
+		minute => "*/1";
+	}
+	cron { "runJobs_client":
+		ensure => present,
+		require => Exec["client_update2"],
+		command => "/bin/sleep 300 ; /usr/bin/php /srv/client/maintenance/runJobs.php > /dev/null",
+		user => "vagrant",
+		minute => "*/1";
 	}
 }
