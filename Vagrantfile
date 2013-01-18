@@ -21,7 +21,7 @@ Vagrant::Config.run do |config|
 	config.vm.share_folder "vagrant", "/srv", ".",
 		:owner => 'vagrant',
 		:group => 'www-data',
-		:extra => 'dmode=770,fmode=770'
+		:extra => 'dmode=777,fmode=777'
 
 	# To enable NFS, see: http://vagrantup.com/v1/docs/nfs.html
 	# NFS improves the performance of file sharing considerably,

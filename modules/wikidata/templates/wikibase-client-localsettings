@@ -12,7 +12,11 @@ require_once( '/srv/orig-client/LocalSettings.php' );
 
 $wgArticlePath      = "/client/wiki/$1";
 $wgLogo             = "$wgStylePath/common/images/Wikidata-logo-democlient.png";
-# InstantCommons allows wiki to use images from http://commons.wikimedia.org
+
+// path to extensions
+$wgExtensionAssetsPath = $wgServer . "/extensions";
+
+// InstantCommons allows wiki to use images from http://commons.wikimedia.org
 $wgUseInstantCommons  = true;
 
 // Wikidata: Wikibase lib and client extensions

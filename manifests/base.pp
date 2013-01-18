@@ -20,9 +20,14 @@ class generic {
 	package { 'git':
 		ensure => present
 	}
+
+	package { 'vim':
+		ensure => present
+	}
+
 }
 
-include generic 
+include generic
 include memcached
 include mysql
 include php

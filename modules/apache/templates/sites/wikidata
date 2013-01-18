@@ -1,15 +1,10 @@
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
 
-        DocumentRoot /var/www
+        DocumentRoot /var/www/srv
 
-        <Directory /var/www/>
+        <Directory /var/www/srv/>
                 Options Indexes FollowSymlinks Multiviews
-        </Directory>
-
-
-        <Directory /var/www/srv/repo/>
-                Options Indexes FollowSymlinks MultiViews
                 AllowOverride None
                 Order allow,deny
                 allow from all
@@ -17,14 +12,6 @@
 
         Alias /repo/wiki /var/www/srv/repo/index.php
         Alias /repo /var/www/srv/repo
-
-
-        <Directory /var/www/srv/client/>
-                Options Indexes FollowSymlinks MultiViews
-                AllowOverride None
-                Order allow,deny
-                allow from all
-        </Directory>
 
         Alias /client/wiki /var/www/srv/client/index.php
         Alias /client /var/www/srv/client
