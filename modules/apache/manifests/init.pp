@@ -39,7 +39,7 @@ class apache {
 
 # files for apache document root
 
-	file { "/var/www":
+	file { "/var/www/srv":
 		ensure => directory;
 	}
 
@@ -48,10 +48,10 @@ class apache {
 		ensure => present;
 	}
 
-	file { "/var/www/index.html":
+	file { "/var/www/srv/index.html":
 		ensure => "link",
 		target => "/srv/index.html",
-		require => File["/var/www"];
+		require => File["/var/www/srv"];
 	}
 
 	file { "/srv/favicon.ico":
@@ -59,10 +59,10 @@ class apache {
 		ensure => present;
 	}
 
-	file { "/var/www/favicon.ico":
+	file { "/var/www/srv/favicon.ico":
 		ensure => 'link',
 		target => '/srv/favicon.ico',
-		require => File["/var/www"];
+		require => File["/var/www/srv"];
 	}
 
 	file { "/srv/style.css":
@@ -70,10 +70,10 @@ class apache {
 		ensure => present;
 	}
 
-	file { "/var/www/style.css":
+	file { "/var/www/srv/style.css":
 		ensure => 'link',
 		target => '/srv/style.css',
-		require => File["/var/www"];
+		require => File["/var/www/srv"];
 	}
 
 	file { "/srv/Wikidata-logo-demo.png":
@@ -81,10 +81,10 @@ class apache {
 		ensure => present;
 	}
 
-	file { "/var/www/Wikidata-logo-demo.png":
+	file { "/var/www/srv/Wikidata-logo-demo.png":
 		ensure => 'link',
 		target => '/srv/Wikidata-logo-demo.png',
-		require => File["/var/www"];
+		require => File["/var/www/srv"];
 	}
 
 }

@@ -45,10 +45,6 @@ class wikidata::repo {
 		logoutput => "on_failure";
 	} ->
 
-	file { "/var/www/srv":
-		ensure => "directory";
-	}
-
 	file { "/var/www/srv/repo":
 		require => File["/var/www/srv"],
 		ensure  => "link",
