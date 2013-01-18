@@ -26,6 +26,18 @@ class wikidata::repo {
 		ensure => 'directory';
 	}
 
+	file { "/srv/extensions":
+		ensure => directory;
+	}
+
+#	exec { "rm_ext_dir":
+#		cwd => "/srv/repo",
+#		provider => shell,
+#		command => "rm -rf extensions",
+#		logoutput => "on_failure";
+#	}
+#
+
 	exec { "repo_setup":
 		require => [Exec["mysql-set-password"], File["/srv/orig-repo"]],
 		creates => "/srv/orig-repo/LocalSettings.php",
@@ -41,6 +53,12 @@ class wikidata::repo {
 		require => File["/var/www/srv"],
 		ensure  => "link",
 		target  => "/srv/repo";
+	}
+
+	file { "/var/www/srv/extensions":
+		require => File["/var/www/srv"],
+		ensure => "link",
+		target => "/srv/extensions";
 	}
 
 # update script I
@@ -69,6 +87,13 @@ class wikidata::repo {
 		require => [Exec["repo_update"], File["/srv/repo/LocalSettings.php"]],
 		provider => shell,
 		command => "MW_INSTALL_PATH=/srv/repo /usr/bin/php /srv/repo/maintenance/update.php --quick --conf '/srv/repo/LocalSettings.php' || MW_INSTALL_PATH=/srv/repo /usr/bin/php /srv/repo/maintenance/update.php --quick --conf '/srv/repo/LocalSettings.php'",
+		logoutput => "on_failure";
+	}
+
+	exec { "populateSitesTable1":
+		require => Exec["repo_setup"],
+		provider => shell,
+		command => "MW_INSTALL_PATH=/srv/repo /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/populateSitesTable.php",
 		logoutput => "on_failure";
 	}
 
@@ -155,6 +180,13 @@ class wikidata::client {
 		cwd => "/srv/extensions/Wikibase/client/maintenance",
 		provider => shell,
 		command => "MW_INSTALL_PATH=/srv/client /usr/bin/php populateInterwiki.php",
+		logoutput => "on_failure";
+	}
+
+	exec { "populateSitesTable2":
+		require => Exec["client_setup"],
+		provider => shell,
+		command => "MW_INSTALL_PATH=/srv/client /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/populateSitesTable.php",
 		logoutput => "on_failure";
 	}
 

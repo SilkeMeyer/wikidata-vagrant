@@ -13,6 +13,8 @@ require_once( '/srv/orig-repo/LocalSettings.php' );
 $wgArticlePath      = "/repo/wiki/$1";
 $wgLogo             = "$wgStylePath/common/images/Wikidata-logo-demorepo.png";
 
+// path to extensions
+$wgExtensionAssetsPath = $wgServer . "/extensions";
 
 // experimental features
 define( 'WB_EXPERIMENTAL_FEATURES', true );
