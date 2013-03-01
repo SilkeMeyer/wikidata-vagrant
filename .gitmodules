@@ -25,3 +25,6 @@
 [submodule "extensions/ApiSandbox"]
 	path = extensions/ApiSandbox
 	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/ApiSandbox.git
+[submodule "extensions/Babel"]
+	path = extensions/Babel
+	url = https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Babel.git
