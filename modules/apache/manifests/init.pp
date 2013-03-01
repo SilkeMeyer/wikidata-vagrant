@@ -39,8 +39,13 @@ class apache {
 
 # files for apache document root
 
-	file { "/var/www/srv":
+	file { "/var/www":
 		ensure => directory;
+	}
+
+	file { "/var/www/srv":
+		ensure => directory,
+		require => File["/var/www"],
 	}
 
 	file { "/srv/index.html":
