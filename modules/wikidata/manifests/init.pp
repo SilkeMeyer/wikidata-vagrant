@@ -30,14 +30,6 @@ class wikidata::repo {
 		ensure => directory;
 	}
 
-#	exec { "rm_ext_dir":
-#		cwd => "/srv/repo",
-#		provider => shell,
-#		command => "rm -rf extensions",
-#		logoutput => "on_failure";
-#	}
-#
-
 	exec { "repo_setup":
 		require => [Exec["mysql-set-password"], File["/srv/orig-repo"]],
 		creates => "/srv/orig-repo/LocalSettings.php",
@@ -203,15 +195,6 @@ class wikidata::client {
 		group => "vagrant",
 		mode => "0664";
 	}
-# poll for changes
-# will soon be deprecated but still works
-#	cron { "pollForChanges":
-#		ensure => present,
-#		require => Exec["client_update2"],
-#		command => "/bin/sleep 300 ; MW_INSTALL_PATH=/srv/client /usr/bin/php /srv/extensions/Wikibase/lib/maintenance/pollForChanges.php --since \"yesterday\" >> /var/log/wikidata-replication.log",
-#		user => "vagrant",
-#		minute => "*/5";
-#	}
 	cron { "dispatcher":
 		ensure => present,
 		require => Exec["client_update2"],
