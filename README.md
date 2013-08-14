@@ -1,6 +1,8 @@
 Wikidata-vagrant
 ===========
 
+SORRY, THIS PROJECT IS DISCONTINUED.
+
 This project is a fork of https://github.com/atdt/wmf-vagrant.git to be adapted to Wikidata.
 
 ## Prerequisites ##
